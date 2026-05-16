@@ -1,3 +1,6 @@
+/* Importación de FontAwesome para sustituir emojis por iconos */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
 :root {
     --rosa-principal: #d3a297; /* Color de los botones y acentos */
     --texto-oscuro: #555555;
@@ -18,17 +21,21 @@ h1, h2, h3 {
     font-family: 'Playfair Display', serif;
     font-weight: 400;
     letter-spacing: 2px;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
 }
 
 section {
-    padding: 60px 20px;
+    padding: 0 20px;
+    padding-bottom: 20px;
     max-width: 500px;
-    margin: 0 auto;
+    
 }
 
 /* PORTADA */
 .hero {
-    height: 100vh;
+    height: 80vh;
     background: linear-gradient(rgba(0, 0, 0, 0.678), rgba(0, 0, 0, 0.493)), url('../images/header-image.jpg');
     background-size: cover;
     background-position: center;
@@ -46,7 +53,7 @@ section {
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin: 30px 0;
+    
 }
 
 .time-box {
@@ -92,14 +99,14 @@ section {
     justify-content: center;
     gap: 20px;
     font-size: 1.5rem;
-    margin: 20px 0;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-    padding: 15px 0;
+    
+    border-top: 2px solid #eee;
+    border-bottom: 2px solid #eee;
+    
 }
 
 .divider {
-    width: 1px;
+    width: 2px;
     height: 40px;
     background-color: #ddd;
 }
@@ -137,17 +144,18 @@ section {
 
 .icon {
     font-size: 2rem;
-    margin-bottom: 10px;
+    
+    display: inline-block;
+    color: var(--rosa-principal);
 }
 
 /* CONTENEDOR DEL REPRODUCTOR */
 .music-player-container {
-    background-color: rgba(220, 220, 220, 0.8); /* Fondo gris claro translúcido */
+    background: transparent;
     border-radius: 30px;
-    padding: 10px 20px;
-    max-width: 350px;
-    margin: 20px auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
 }
 
 .player-controls {
@@ -161,7 +169,7 @@ section {
     background: none;
     border: none;
     font-size: 1.2rem;
-    color: #555;
+    color: var(--texto-obscuro);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -254,3 +262,54 @@ section {
     transform: scale(1.03);
 }
 
+/* ESTILOS DEL MODAL */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    width: 85%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #999;
+}
+
+.modal h2 { margin-top: 0; color: var(--rosa-principal); }
+.modal p { margin: 10px 0; font-size: 0.9rem; }
+
+/* PALETA DE COLORES */
+.color-palette {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.color-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}

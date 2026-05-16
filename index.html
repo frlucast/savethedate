@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitación de Boda - Alba & Juan</title>
-    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
   </head>
@@ -18,52 +17,76 @@
         </div>
     </section>
 
-    <section> 
-    <audio controls preload="auto" loop autoplay>
-    <source src="assets/music/wedding-song.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
+    <section style="background:#f8f0e3"> 
+        <div class="music-player-container">
+            <audio id="wedding-music" preload="auto" loop autoplay>
+                <source src="assets/music/wedding-song.mp3" type="audio/mpeg">
+            </audio>
+            <div class="player-controls">
+                <button class="control-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <input type="range" id="progress-bar" value="0" step="0.1">
+            </div>
+        </div>
     </section>
 
-    <section class="countdown-section">
-    <h2>¡ESTÁS INVITADO!</h2>
-    <p>Nos encantaría que seas parte de este momento tan especial para nosotros. ¡Falta poco!</p>
-    
+    <section class="countdown-section" style="background-color: #f8f0e3; ">
+    <h2>FALTAN</h2>
+        
     <div class="countdown-container">
         <div class="time-box"><span id="days">00</span><small>DÍAS</small></div>
         <div class="time-box"><span id="hours">00</span><small>HORAS</small></div>
         <div class="time-box"><span id="minutes">00</span><small>MINUTOS</small></div>
         <div class="time-box"><span id="seconds">00</span><small>SEGUNDOS</small></div>
     </div>
-    
+    </section>
    
 
-</section>
 
     <section class="event-details">
-    <div class="icon">💍</div>
-    <h2>CEREMONIA & CELEBRACIÓN</h2>
+        <p class="waiting">Te esperamos el</p>
+        <div class="date-row">
+            <div class="date-item">27 JUN</div>
+            <div class="divider"></div>
+            <div class="date-item">19:00 h.</div>
+        </div>
+        </section>
+
+    <section>
+    <div class="icon"><i class="fas fa-church"></i></div>
+    <h2>CEREMONIA</h2>
     <p>Hotel Hilton · Salón Star</p>
-    <p class="waiting">Te esperamos el</p>
+    <p class="location-text">Av. Juárez 70, Colonia Centro, Ciudad de México</p>
+    <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Hilton+Salon+Star+Av+Juarez+70+Centro+Ciudad+de+Mexico" target="_blank" style="text-decoration: none;">
+        <button class="btn-primary">VER UBICACIÓN</button>
+    </a>
+
+    </section>
+    <section>
+
+    <div class="icon"><i class="fas fa-glass-cheers"></i></div>
+    <h2>CELEBRACIÓN</h2>
+    <p>Hotel Hilton · Salón Star</p>
     
-    <div class="date-row">
-        <div class="date-item">27 JUN</div>
-        <div class="divider"></div>
-        <div class="date-item">19:00 h.</div>
-    </div>
 
     <p class="location-text">Av. Juárez 70, Colonia Centro, Ciudad de México</p>
     
     <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Hilton+Salon+Star+Av+Juarez+70+Centro+Ciudad+de+Mexico" target="_blank" style="text-decoration: none;">
         <button class="btn-primary">VER UBICACIÓN</button>
     </a>
-</section>
-
-
+    </section>
+   
+    
     <section class="dress-code">
-        <div class="icon">🤵👰</div>
-        <h2>DRESS CODE</h2>
-        <p>¡Como te sientas más comod@!</p>
+        <div class="icon"><i class="fas fa-user-tie"></i></div>
+        <h2>CODIGO DE VESTIMENTA</h2>
+        <p>Formal</p>
+        <div class="color-palette">
+            <div class="color-circle" style="background-color: #d3a297;"></div>
+            <div class="color-circle" style="background-color: #eaddca;"></div>
+            <div class="color-circle" style="background-color: #555555;"></div>
+        </div>
         <div class="gallery-placeholder">
             <div class="img-grid">
                 <div class="img-item small"></div>
@@ -91,19 +114,34 @@
 </section>
 
     <section class="gifts">
-    <div class="icon">🎁</div>
+    <div class="icon"><i class="fas fa-gift"></i></div>
     <h2>REGALOS</h2>
     <p>Lo más importante es tu presencia, pero si deseas hacernos un regalo aquí tienes algunas opciones</p>
     
     <div class="gift-option">
-        <span>📦</span>
-        <p>MESA DE REGALOS EN AMAZON</p>
+        
         
         <a href="https://www.amazon.com.mx/baby-reg/home" target="_blank" rel="noopener noreferrer" style="text-decoration: none; width: 100%; display: block;">
             <button class="btn-primary">VER MESA DE REGALOS</button>
         </a>
+        <p>Si nos quieres ayudar en nuestra luna de miel...</p>
+
+        <button type="button" class="btn-primary" id="open-bank-modal">VER DATOS BANCARIOS</button>
     </div>
 </section>
+
+    <!-- Modal de Datos Bancarios -->
+    <div id="bank-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <i class="fas fa-university icon"></i>
+            <h2>Datos Bancarios</h2>
+            <p><strong>Banco:</strong> Mi Banco Nacional</p>
+            <p><strong>CLABE:</strong> <span id="clabe-number">0123 4567 8901 2345 67</span></p>
+            <p><strong>Titular:</strong> Juan Pérez y Alba García</p>
+            <button class="btn-primary" id="copy-clabe">COPIAR CLABE</button>
+        </div>
+    </div>
 
     <section class="rsvp">
     <h2>CONFIRMAR ASISTENCIA</h2>
@@ -116,6 +154,7 @@
         </div>
         
         <input type="text" id="guest-name" placeholder="Nombre y apellido" required>
+        <input type="number" id="guest-count" placeholder="Número de personas (incluyéndote)" min="1" required>
         <textarea id="guest-message" placeholder="Mensaje para los novios:" rows="4"></textarea>
         
         <button type="submit" class="btn-submit">ENVIAR RESPUESTA</button>

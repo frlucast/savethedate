@@ -2,6 +2,67 @@
 
 document.addEventListener('DOMContentLoaded', function () {
   console.log('Página lista');
+
+  // --- Lógica del Reproductor de Música ---
+  const playBtn = document.querySelector('.control-btn');
+  // Buscamos el elemento de audio (asegúrate de tener <audio id="wedding-music" src="..."></audio> en tu HTML)
+  const music = document.getElementById('wedding-music');
+  const progressBar = document.getElementById('progress-bar');
+
+  if (playBtn && music) {
+      playBtn.addEventListener('click', function() {
+          if (music.paused) {
+              music.play();
+              // Cambiamos el emoji/texto por icono de Pause
+              playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+          } else {
+              music.pause();
+              // Cambiamos el emoji/texto por icono de Play
+              playBtn.innerHTML = '<i class="fas fa-play"></i>';
+          }
+      });
+
+      // Actualizar la barra de progreso mientras suena la música
+      music.addEventListener('timeupdate', () => {
+          const progress = (music.currentTime / music.duration) * 100;
+          if (progressBar) progressBar.value = progress || 0;
+      });
+  }
+
+  // --- Lógica del Modal de Datos Bancarios ---
+  const modal = document.getElementById('bank-modal');
+  const openModalBtn = document.getElementById('open-bank-modal');
+  const closeModalBtn = document.querySelector('.close-modal');
+  const copyBtn = document.getElementById('copy-clabe');
+
+  if (openModalBtn && modal) {
+      openModalBtn.addEventListener('click', () => {
+          modal.style.display = 'flex';
+      });
+  }
+
+  if (closeModalBtn) {
+      closeModalBtn.addEventListener('click', () => {
+          modal.style.display = 'none';
+      });
+  }
+
+  // Cerrar si se hace clic fuera del contenido blanco
+  window.addEventListener('click', (event) => {
+      if (event.target === modal) {
+          modal.style.display = 'none';
+      }
+  });
+
+  // Función para copiar la CLABE
+  if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+          const clabe = document.getElementById('clabe-number').textContent;
+          navigator.clipboard.writeText(clabe);
+          copyBtn.textContent = '¡COPIADO!';
+          setTimeout(() => { copyBtn.textContent = 'COPIAR CLABE'; }, 2000);
+      });
+  }
 });
 
 
@@ -39,8 +100,8 @@ const intervalo = setInterval(function() {
         document.getElementById("minutes").textContent = "00";
         document.getElementById("seconds").textContent = "00";
         
-        // Opcional: puedes cambiar el texto de arriba por un "¡Hoy es el gran día!"
-        document.querySelector(".countdown-section p").textContent = "¡Llegó el momento de celebrar!";
+        // Sustituimos el texto por uno con icono de celebración
+        document.querySelector(".countdown-section p").innerHTML = '<i class="fas fa-glass-cheers"></i> ¡Llegó el momento de celebrar!';
     }
 
 }, 1000);
@@ -57,7 +118,7 @@ document.getElementById('wedding-rsvp-form').addEventListener('submit', function
     submitBtn.disabled = true;
 
     // URL generada en Google Apps Script
-    const urlScript = "https://script.google.com/macros/s/AKfycbzgIfrGaIna0aSHsz1o-p1YBZO73Ybr3A6H83jbSoIrhQ3BI8ZuNSgJkQjoj0s7ltuU/exec";
+    const urlScript = "https://script.google.com/macros/s/AKfycbxNLbc2OALr9WKl1WHHqwt9khtCBrglZekXKpAYoVphIWJT7qvP9hJkQGftgvbMomXi/exec";
 
     // Recolectar y validar la opción de asistencia seleccionada
     const asistenciaInput = document.querySelector('input[name="asistencia"]:checked');
@@ -71,20 +132,20 @@ document.getElementById('wedding-rsvp-form').addEventListener('submit', function
 
     const nombreInvitado = document.getElementById('guest-name')?.value || 'Anónimo';
     const mensajeInvitado = document.getElementById('guest-message')?.value || '';
+    const numeroPersonas = document.getElementById('guest-count')?.value || 1;
 
-    // Crear el objeto de datos
-    const datosInvitado = {
-        asistencia: asistenciaInput.value,
-        nombre: nombreInvitado,
-        mensaje: mensajeInvitado
-    };
+    // Usamos URLSearchParams para que Google Apps Script reciba los datos de forma sencilla
+    const formData = new URLSearchParams();
+    formData.append('asistencia', asistenciaInput.value);
+    formData.append('nombre', nombreInvitado);
+    formData.append('mensaje', mensajeInvitado);
+    formData.append('numeroPersonas', numeroPersonas);
 
     // Enviar los datos mediante una petición POST (Fetch)
     fetch(urlScript, {
         method: 'POST',
         mode: 'no-cors', 
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(datosInvitado)
+        body: formData
     })
     .then(() => {
         // Como usamos 'no-cors', asumimos éxito directo si no hay error de red
