@@ -39,6 +39,9 @@ section {
     background: linear-gradient(rgba(0, 0, 0, 0.678), rgba(0, 0, 0, 0.493)), url('../images/header-image.jpg');
     background-size: cover;
     background-position: center;
+    size: cover;
+
+    repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
