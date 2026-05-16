@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación de Boda - Alba & Juan</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+  </head>
+<body>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>ALBA & JUAN</h1>
+            <p class="subtitle">NUESTRA BODA</p>
+            <div class="scroll-icon"><span>∨</span></div>
+        </div>
+    </section>
+
+    <section> 
+    <audio controls preload="auto" loop autoplay>
+    <source src="assets/music/wedding-song.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    </section>
+
+    <section class="countdown-section">
+    <h2>¡ESTÁS INVITADO!</h2>
+    <p>Nos encantaría que seas parte de este momento tan especial para nosotros. ¡Falta poco!</p>
+    
+    <div class="countdown-container">
+        <div class="time-box"><span id="days">00</span><small>DÍAS</small></div>
+        <div class="time-box"><span id="hours">00</span><small>HORAS</small></div>
+        <div class="time-box"><span id="minutes">00</span><small>MINUTOS</small></div>
+        <div class="time-box"><span id="seconds">00</span><small>SEGUNDOS</small></div>
+    </div>
+    
+   
+
+</section>
+
+    <section class="event-details">
+    <div class="icon">💍</div>
+    <h2>CEREMONIA & CELEBRACIÓN</h2>
+    <p>Hotel Hilton · Salón Star</p>
+    <p class="waiting">Te esperamos el</p>
+    
+    <div class="date-row">
+        <div class="date-item">27 JUN</div>
+        <div class="divider"></div>
+        <div class="date-item">19:00 h.</div>
+    </div>
+
+    <p class="location-text">Av. Juárez 70, Colonia Centro, Ciudad de México</p>
+    
+    <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Hilton+Salon+Star+Av+Juarez+70+Centro+Ciudad+de+Mexico" target="_blank" style="text-decoration: none;">
+        <button class="btn-primary">VER UBICACIÓN</button>
+    </a>
+</section>
+
+
+    <section class="dress-code">
+        <div class="icon">🤵👰</div>
+        <h2>DRESS CODE</h2>
+        <p>¡Como te sientas más comod@!</p>
+        <div class="gallery-placeholder">
+            <div class="img-grid">
+                <div class="img-item small"></div>
+                <div class="img-item small"></div>
+                <div class="img-item large"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+    <div class="photo-grid">
+        <div class="photo-item">
+            <img src="assets/images/foto1.jpg" alt="Sesión de novios 1">
+        </div>
+        <div class="photo-item">
+            <img src="assets/images/foto2.jpg" alt="Sesión de novios 2">
+        </div>
+        <div class="photo-item vertical">
+            <img src="assets/images/foto3.jpg" alt="Sesión de novios 3">
+        </div>
+        <div class="photo-item vertical">
+            <img src="assets/images/foto4.jpg" alt="Sesión de novios 4">
+        </div>
+    </div>
+</section>
+
+    <section class="gifts">
+    <div class="icon">🎁</div>
+    <h2>REGALOS</h2>
+    <p>Lo más importante es tu presencia, pero si deseas hacernos un regalo aquí tienes algunas opciones</p>
+    
+    <div class="gift-option">
+        <span>📦</span>
+        <p>MESA DE REGALOS EN AMAZON</p>
+        
+        <a href="https://www.amazon.com.mx/baby-reg/home" target="_blank" rel="noopener noreferrer" style="text-decoration: none; width: 100%; display: block;">
+            <button class="btn-primary">VER MESA DE REGALOS</button>
+        </a>
+    </div>
+</section>
+
+    <section class="rsvp">
+    <h2>CONFIRMAR ASISTENCIA</h2>
+    <p>Por favor, confirma tu asistencia</p>
+    
+    <form class="rsvp-form" id="wedding-rsvp-form">
+        <div class="radio-group">
+            <label><input type="radio" name="asistencia" value="Sí, allí estaré!" required> Sí, allí estaré!</label>
+            <label><input type="radio" name="asistencia" value="No podré asistir" required> No podré asistir</label>
+        </div>
+        
+        <input type="text" id="guest-name" placeholder="Nombre y apellido" required>
+        <textarea id="guest-message" placeholder="Mensaje para los novios:" rows="4"></textarea>
+        
+        <button type="submit" class="btn-submit">ENVIAR RESPUESTA</button>
+    </form>
+
+    <div class="footer-sign">
+        <h3>¡TE ESPERAMOS!</h3>
+        <p class="signature">Alba y Juan</p>
+    </div>
+</section>
+<script src="./assets/js/scripts.js"></script>
+</body>
+</html>

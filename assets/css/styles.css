@@ -1,0 +1,256 @@
+:root {
+    --rosa-principal: #d3a297; /* Color de los botones y acentos */
+    --texto-oscuro: #555555;
+    --texto-claro: #888888;
+    --fondo-gris: #f9f9f9;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--texto-oscuro);
+    line-height: 1.6;
+    text-align: center;
+    background-color: #fff;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+section {
+    padding: 60px 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* PORTADA */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.678), rgba(0, 0, 0, 0.493)), url('../images/header-image.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.hero h1 { font-size: 2.5rem; margin-bottom: 0; }
+.hero .subtitle { letter-spacing: 5px; font-weight: 300; }
+
+/* CUENTA REGRESIVA */
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.time-box {
+    background: var(--rosa-principal);
+    color: white;
+    width: 70px;
+    padding: 15px 5px;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.time-box span { font-size: 1.2rem; font-weight: bold; }
+.time-box small { font-size: 0.6rem; }
+
+/* BOTONES */
+.btn-primary, .btn-submit {
+    background-color: var(--rosa-principal);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    width: 80%;
+}
+
+.btn-secondary {
+    background: none;
+    border: 1px solid #ddd;
+    padding: 8px 20px;
+    border-radius: 5px;
+    color: var(--texto-claro);
+    font-size: 0.8rem;
+}
+
+/* DETALLES EVENTO */
+.date-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1.5rem;
+    margin: 20px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+
+.divider {
+    width: 1px;
+    height: 40px;
+    background-color: #ddd;
+}
+
+/* FORMULARIO RSVP */
+.rsvp-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.rsvp-form input, .rsvp-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.signature {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.8rem;
+    color: var(--rosa-principal);
+}
+
+.icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* CONTENEDOR DEL REPRODUCTOR */
+.music-player-container {
+    background-color: rgba(220, 220, 220, 0.8); /* Fondo gris claro translúcido */
+    border-radius: 30px;
+    padding: 10px 20px;
+    max-width: 350px;
+    margin: 20px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* BOTÓN PLAY/PAUSA */
+.control-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #555;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    transition: transform 0.2s;
+}
+
+.control-btn:active {
+    transform: scale(0.9);
+}
+
+/* BARRA DE PROGRESO Y TIEMPOS */
+.progress-area {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    gap: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    color: #666;
+}
+
+/* Estilo de la barra deslizante */
+#progress-bar {
+    flex-grow: 1;
+    appearance: none;
+    -webkit-appearance: none;
+    height: 4px;
+    background: #bbb;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+}
+
+/* El indicador de la barra */
+#progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #555;
+    cursor: pointer;
+}
+
+/* SECCIÓN GALERÍA */
+.gallery-section {
+    padding: 20px 15px;
+    max-width: 450px; /* Se ajusta perfecto a pantallas móviles */
+    margin: 0 auto;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Crea 2 columnas iguales */
+    gap: 12px; /* Espacio limpio entre las imágenes */
+}
+
+.photo-item {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 4px; /* Un ligero toque curvo apenas perceptible como en la foto */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Forzamos que las primeras dos fotos mantengan una proporción más cuadrada */
+.photo-item:nth-child(1),
+.photo-item:nth-child(2) {
+    aspect-ratio: 1 / 1; 
+}
+
+/* Forzamos que las dos fotos de abajo sean más altas (verticales) */
+.photo-item.vertical {
+    aspect-ratio: 3 / 4; 
+}
+
+/* Ajuste de las imágenes para que no se deformen */
+.photo-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Hace que la imagen llene el espacio sin estirarse rraro */
+    display: block;
+    transition: transform 0.3s ease; /* Efecto suave si alguien pasa el dedo o mouse */
+}
+
+/* Efecto sutil interactivo (opcional) */
+.photo-item:hover img {
+    transform: scale(1.03);
+}
+
